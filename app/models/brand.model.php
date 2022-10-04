@@ -32,11 +32,11 @@ class brandModel
     }
 
     
-    function insertBrand($id_Marca, $Marca)
+    function insertBrand($Marca)
     {
 
-        $query = $this->db->prepare("INSERT INTO `marca` (`id_Marca`, `Marca`) VALUES (?, ?)"); //(preparo)-escribo mi consulta
-        $query->execute([$id_Marca, $Marca]);
+        $query = $this->db->prepare("INSERT INTO `marca` ( `Marca`) VALUES (?)"); //(preparo)-escribo mi consulta
+        $query->execute([$Marca]);
 
         //para el id
         return $this->db->lastInsertId();
@@ -55,14 +55,6 @@ class brandModel
         
     }
     
-    // function getProdByBrand($id){
-        
-    //     $query = $this->db->prepare('SELECT * FROM producto WHERE id_marca = ?');
-    //     $query->execute([$id]);
-
-    //     $ProdByBrand = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
-
-    //     return $ProdByBrand;
-    // }
+    
     
 }

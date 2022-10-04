@@ -46,11 +46,11 @@ class ProdController
   {
 
 
-    $id_Marca = $_POST['id_Marca'];
+    // $id_Marca = $_POST['id_Marca'];
     $Marca = $_POST['Marca'];
 
     //inserta el producto a la base de datos
-    $id = $this->brandmodel->insertBrand($id_Marca, $Marca);
+    $id = $this->brandmodel->insertBrand( $Marca);
 
 
     header('Location: ' . BASE_URL . '/formBrand');
@@ -71,7 +71,7 @@ class ProdController
   }
 
   // function FilterBrand($id){
-  //   $prodbyBrand = $this->brandmodel->getProdByBrand($id);
+  //   $prodbyBrand = $this->prodmodel->getProdByBrand($id);
 
   //   $this->view->showProdByBrand($prodbyBrand);
 

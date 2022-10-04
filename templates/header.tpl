@@ -41,7 +41,7 @@
             <a class="nav-link" href="formProd">Formulario Producto</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="formBrands">Formulario Marcas</a>
+            <a class="nav-link" href="formBrand">Formulario Marcas</a>
           </li> 
         </ul>
         <ul class="nav justify-content-end">

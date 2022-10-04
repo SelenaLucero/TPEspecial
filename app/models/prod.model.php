@@ -76,4 +76,14 @@ class ProdModel {
     }
     
 
+    // function getProdByBrand($id){
+        
+    //     $query = $this->db->prepare('SELECT * FROM producto WHERE id_marca = ?');
+    //     $query->execute([$id]);
+
+    //     $ProdByBrand = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+
+    //     return $ProdByBrand;
+    // }
+
 }
