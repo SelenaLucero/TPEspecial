@@ -101,10 +101,10 @@ class ProdController
   function FormProd()
   {
     //contiene los productos del modelo
-    $products = $this->prodmodel->getAllProducts();
-
+     $brands = $this->brandmodel->getAllBrands();
+    
     //actualizo la vista 
-    $this->view->showFormProd($products);
+    $this->view->showFormProd($brands);
   }
 
   //inserto un producto

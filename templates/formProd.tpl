@@ -5,15 +5,12 @@
     <div class="row">
         <div class="col-9">
             <div class="form-group">
-            {* que tengo que acomodar de aca para que me muestre las marcas 
+            {* {var_dump ($brands)} *}
+             <select name="select">
             {foreach from= $brands item=$brand} 
-            <select name="select">
-                <option value="Marca" name="id_Marca">{$brand->Marca}</option>
-            </select>
+                <option value="{$brand->id_Marca}">{$brand->Marca}</option>
             {/foreach}
-            si cambio aca por el select en el detalle tambien lo cambio
-            ya que me muestra que marca es*}
-                <label>Marca:<input name="id_Marca"  type="number" class="form-control"></label>
+             </select>
                 <label>Variedad: <input name="Variedad" type="text" class="form-control"></label>
                 <label>Descripcion: <input name="Descripcion"   type="text" class="form-control"></label>
                 <label>Precio: <input name="Precio" type="text" class="form-control"></label>

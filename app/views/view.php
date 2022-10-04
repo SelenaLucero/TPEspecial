@@ -55,9 +55,9 @@ class ProdView
     $this->smarty->display('templates/showDetail.tpl');
   }
 
-  function showFormProd($products)
+  function showFormProd($brands)
   {
-    $this->smarty->assign("products", $products);
+    $this->smarty->assign("brands", $brands);
     $this->smarty->display('templates/formProd.tpl');
   }
 }

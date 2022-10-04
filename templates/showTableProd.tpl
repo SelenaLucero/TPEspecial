@@ -6,7 +6,7 @@
                   <th>Variedad</th>
                   <th>Precio</th>
                   <tr>
-                      <th scope="col">{$product->id_Marca}</th>
+                      <th scope="col">{$product->Marca}</th>
                       <th scope="col">{$product->Variedad }</th>
                       <th scope="col">{$product->Precio} </th>
                   </tr>

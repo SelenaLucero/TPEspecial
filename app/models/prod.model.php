@@ -78,7 +78,8 @@ class ProdModel {
 
     function getProdByBrand($id){
         
-        $query = $this->db->prepare('SELECT * FROM producto WHERE marca = ?');
+        $query = $this->db->prepare(' SELECT a. *, b. *FROM  marca a 
+        INNER JOIN producto b ON a.id_marca = b.id_marca WHERE a.id_producto  = ? );');
         $query->execute([$id]);
 
         $ProdByBrand = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos

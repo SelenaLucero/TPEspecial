@@ -8,7 +8,7 @@ tendria todos mis productos de esa marca *}
   <div class="card">
       <div class="card-body">
         <ul>
-          <li class="card-title"><a href="brand/{$brand->id_Marca}">{$brand->Marca}</a></li>
+          <li class="card-title"><a href="brand/{$brand->Marca}">{$brand->Marca}</a></li>
         </ul>
     </div>
   </div>
