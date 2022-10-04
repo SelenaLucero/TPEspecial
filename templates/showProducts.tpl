@@ -4,9 +4,6 @@
 {* <img src="'. $producto->img .'" class="card-img-top" alt="..."> *}
 
 
-{include 'templates/prodByBrand.tpl'}
-
-
 <section class="card">
     {foreach from= $products item=$product} 
       <div class="card">

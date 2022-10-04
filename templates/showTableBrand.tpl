@@ -3,11 +3,9 @@
       
     <table class="table">
           <thead>
-          <th>id_Marca</th>
-          <th>Marca</th>
+            <th>Marca</th>
           <tr>
-          <th scope="col">{$brand->id_Marca}</th>
-          <th scope="col">{$brand->Marca }</th>
+            <th scope="col">{$brand->Marca }</th>
           </tr>
     </thead> 
     <a href="updateBrand/{$brand->id_Marca}" class="btn btn-outline-warning">Editar</a>

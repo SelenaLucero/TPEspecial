@@ -20,7 +20,6 @@ class ProdView
   function showBrands($brands)
   {
     $this->smarty->assign("brands", $brands);
-    //hago que vaya a productos porque en ese meti mis marcas??
     $this->smarty->display('templates/showBrands.tpl');
   }
 
@@ -33,11 +32,11 @@ class ProdView
 
 
 
-  // function showProdByBrand($brands){ // seria los productos de cierta marca?
-  //   $this->smarty->assign("marcas", $brands);
-  //   $this->smarty->display('templates/prodByBrand.tpl');
+  function showProdByBrand($products){ // seria los productos de cierta marca?
+    $this->smarty->assign("product", $products);
+    $this->smarty->display('templates/prodByBrand.tpl');
 
-  // }
+  }
 
 
 

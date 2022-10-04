@@ -29,14 +29,6 @@
            <li class="nav-item">
             <a class="nav-link" href="brands">Marcas</a>
           </li> 
-          {*<section class="card">
-            {foreach from= $brands item=$brand} 
-            <select class="form-select" aria-label="Disabled select example" disabled>
-            <option selected> <aclass="nav-link" href="brands/{$brand->$Marca}">Marcas</option></a>
-          </select>
-    
-    {/foreach} 
-</section>*}
            <li class="nav-item">
             <a class="nav-link" href="formProd">Formulario Producto</a>
           </li>

@@ -68,10 +68,10 @@ switch ($params[0]) {
     //       $id = $params[1];
     //      $ProdController->UpdateBrand($id);
     //     break;
-    // case 'FilterBrand':
-    //     // obtengo el parametro de la acción
-    //         $ProdController->FilterBrand($params[1]);
-    //         break;
+    case 'FilterBrand':
+        // obtengo el parametro de la acción
+            $ProdController->FilterBrand($params[1]);
+            break;
     default:
         break;
 }

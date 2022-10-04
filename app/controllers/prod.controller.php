@@ -70,12 +70,12 @@ class ProdController
     header('Location: ' . BASE_URL . '/formBrand');
   }
 
-  // function FilterBrand($id){
-  //   $prodbyBrand = $this->prodmodel->getProdByBrand($id);
+  function FilterBrand($id){
+    $prodbyBrand = $this->prodmodel->getProdByBrand($id);
 
-  //   $this->view->showProdByBrand($prodbyBrand);
+    $this->view->showProdByBrand($prodbyBrand);
 
-  // }
+  }
 
 
 
@@ -133,14 +133,14 @@ class ProdController
 
   function UpdateProduct($id)
   {
-    if (isset($_POST['updateProd'])) {
-      $id = $_POST['id'];
+    
+     
       $id_Marca = $_POST['id_Marca'];
       $Variedad = $_POST['Variedad'];
       $Precio = $_POST['Precio'];
       $Descripcion = $_POST['Descripcion'];
       $this->prodmodel->updateProductById($id);
-    }
+  
     header('Location: ' . BASE_URL . '/formProd');
   }
 }
