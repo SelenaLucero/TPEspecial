@@ -7,12 +7,12 @@
                   <th> Descripcion </th>
                   <th>Precio</th>
                   <tr>
-                      <th scope="col">{$product->Variedad}</th>
-                      <th scope="col">{$product->Descripcion}</th>
-                      <th scope="col">{$product->Precio} </th>
+                      <th scope="row">{$product->Variedad}</th>
+                      <th scope="row">{$product->Descripcion}</th>
+                      <th scope="row">{$product->Precio} </th>
                   </tr>
             </thead>
 
             <a href="updateProd/{$product->id}" class="btn btn-outline-warning">Editar</a>
-            <a href='deleteProduct/{$product->id}' type='button' class='btn btn-outline-danger ml-auto'>Borrar</a>
+            <a href="deleteProduct/{$product->id}" type='button' class='btn btn-outline-danger ml-auto'>Borrar</a>
 {/foreach}

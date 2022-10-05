@@ -72,7 +72,7 @@ switch ($params[0]) {
          $ProdController->UpdateBrand();
         break;
     }
-    case 'FilterBrand':{
+    case 'filterBrand':{
         // obtengo el parametro de la acción
             $ProdController->FilterBrand($params[1]);
             break;

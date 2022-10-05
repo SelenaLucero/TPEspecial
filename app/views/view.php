@@ -12,7 +12,6 @@ class ProdView
   function showHome()
   {
 
-
     $this->smarty->display('templates/header.tpl');
     $this->smarty->display('templates/aboutUs.tpl');
     $this->smarty->display('templates/footer.tpl');
@@ -24,6 +23,7 @@ class ProdView
   }
 
 
+
   function showFormBrands($brands)
   {
     $this->smarty->assign("brands", $brands);
@@ -32,8 +32,8 @@ class ProdView
 
 
 
-  function showProdByBrand($products){ // seria los productos de cierta marca?
-    $this->smarty->assign("product", $products);
+  function showProdByBrand($products){ //muestra los productos de cierta marca
+    $this->smarty->assign("products", $products);
     $this->smarty->display('templates/prodByBrand.tpl');
 
   }
@@ -55,9 +55,10 @@ class ProdView
   }
 
   //aca va brands
-  function showFormProd($brands)
+  function showFormProd($brands, $products)
   {
     $this->smarty->assign("brands", $brands);
+    $this->smarty->assign("products", $products);
     $this->smarty->display('templates/formProd.tpl');
   }
 

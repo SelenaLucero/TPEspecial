@@ -32,6 +32,15 @@ class ProdController
     $this->view->showBrands($brands);
   }
 
+
+  
+  function FilterBrand($id){
+    $prodbyBrand = $this->prodmodel->getProdByBrand($id);
+    
+    $this->view->showProdByBrand($prodbyBrand);
+
+  }
+
   function FormBrands()
   {
     //contiene los productos del modelo
@@ -44,14 +53,10 @@ class ProdController
 
   function AddBrand()
   {
-
-
-    // $id_Marca = $_POST['id_Marca'];
     $Marca = $_POST['Marca'];
 
     //inserta el producto a la base de datos
     $id = $this->brandmodel->insertBrand( $Marca);
-
 
     header('Location: ' . BASE_URL . '/formBrand');
   }
@@ -71,17 +76,6 @@ class ProdController
     // $this->brandmodel->showUpdateBrand();
     header('Location:  . BASE_URL . ');
   }
-
-
-
-  function FilterBrand($id){
-    $prodbyBrand = $this->prodmodel->getProdByBrand($id);
-    
-    $this->view->showProdByBrand($prodbyBrand);
-
-  }
-
-
 
 
   // productos
@@ -104,22 +98,22 @@ class ProdController
 
   function FormProd()
   {
-    
-     $brands = $this->brandmodel->getAllBrands();
-     $this->view->showFormProd($brands);
+    $products = $this->prodmodel->getAllProducts();
+    $brands = $this->brandmodel->getAllBrands();
+    $this->view->showFormProd($brands, $products);
     
   }
 
   //inserto un producto
   function AddProduct()
   {
-
+    $id_Marca = $_POST['id_Marca'];
     $Variedad = $_POST['Variedad'];
     $Descripcion = $_POST['Descripcion'];
     $Precio = $_POST['Precio'];
     
     //inserta el producto a la base de datos
-    $id = $this->prodmodel->insertProd($Variedad, $Descripcion, $Precio);
+    $id = $this->prodmodel->insertProd($id_Marca,$Variedad, $Descripcion, $Precio);
 
 
     header('Location: ' . BASE_URL . '/products');
