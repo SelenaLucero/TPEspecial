@@ -5,7 +5,7 @@
           <thead>
             <th>Marca</th>
           <tr>
-            <th scope="col">{$brand->Marca}</th>
+            <td scope="col">{$brand->Marca}</td>
           </tr>
     </thead> 
     <a href="updateBrand/{$brand->id_Marca}" class="btn btn-outline-warning">Editar</a>

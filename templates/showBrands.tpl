@@ -3,15 +3,14 @@
 <h1>Marcas de vinos</h1>
 {* como hago para que el links de marcas que tengo me lleve a prodByBrand donde 
 tendria todos mis productos de esa marca *}
-<section class="card">
+<section>
 {foreach from= $brands item=$brand} 
-  <div class="card">
-      <div class="card-body">
-        <ul>
-          <li class="card-title"><a href="FilterBrand/{$brand->Marca}">{$brand->Marca}</a></li>
+  <div class="list-group">
+      <ul class="list-group list-group-flush">
+      
+          <li><a href="FilterBrand/{$brand->Marca}" class="list-group-item list-group-item-action">{$brand->Marca}</a></li>
         </ul>
-    </div>
-  </div>
+      </div>
 {/foreach} 
 </section> 
 

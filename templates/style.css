@@ -1,9 +1,11 @@
 .card-img, .card-img-bottom, .card-img-top {
     width: 12%;
 }
-.navbar .navbar-expand-lg .bg-light{
-    --bs-navbar-brand-padding-y: 3.3125rem;
+
+.navbar-brand * {
+    color: #f8f9fa;
 }
+
 
 body {
     
