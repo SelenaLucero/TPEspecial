@@ -1,5 +1,6 @@
 {include 'templates/header.tpl'}
 
+<p>Ingrese su nueva marca</p>
 
 <form action="insertBrand" method="POST" class="my-4">
     <div class="row">

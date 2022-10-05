@@ -4,3 +4,9 @@
 .navbar .navbar-expand-lg .bg-light{
     --bs-navbar-brand-padding-y: 3.3125rem;
 }
+
+body {
+    
+   background-image: url("/img/vinotecahome.jpg");
+   
+}

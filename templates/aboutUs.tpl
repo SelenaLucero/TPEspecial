@@ -1,5 +1,6 @@
 
 <div>
+{* {img src="img/vinotecahome.jpg"} *}
 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae eos veritatis harum quia, ad doloribus accusamus blanditiis incidunt exercitationem? Sint soluta officia nesciunt accusamus repellat harum, magnam cum odit ipsam.
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iste autem necessitatibus, architecto eos dicta ipsa praesentium reprehenderit vero alias atque asperiores harum quibusdam dolores sequi officia! Explicabo, illo necessitatibus!
   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos necessitatibus, maiores dolore asperiores iste vel numquam explicabo qui, accusamus est in blanditiis corrupti voluptas libero obcaecati minima cumque. Quia, rerum?

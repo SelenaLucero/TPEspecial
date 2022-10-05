@@ -42,36 +42,41 @@ switch ($params[0]) {
         // obtengo el parametro de la acción
         $ProdController->deleteProduct($params[1]);
         break;
-    case 'updateProd':
-        // obtengo el parametro de la acción
-        $id = $params[1];
-        $ProdController->UpdateProduct($id);
-        break;
-    case 'brands': {
+    // case 'updateProd':
+    //     // obtengo el parametro de la acción
+    //     $id = $params[1];
+    //     $ProdController->UpdateProduct($id);
+    //     break;
+
+    ///marcas
+
+    case 'brands':{
             $ProdController->showBrand();
             break;
         }
-    case 'formBrand': {
+    case 'formBrand':{
             $ProdController->FormBrands();
             break;
     }
-    case 'insertBrand':
+    case 'insertBrand':{
         $ProdController->AddBrand();
-
         break;
-    case 'deleteBrand':
+    }
+    case 'deleteBrand':{
             // obtengo el parametro de la acción
             $ProdController->deleteBrand($params[1]);
             break;
-    // case 'updateBrand':
-    //  // obtengo el parametro de la acción
-    //       $id = $params[1];
-    //      $ProdController->UpdateBrand($id);
-    //     break;
-    case 'FilterBrand':
+    }
+    case 'updateBrand':{
+     // obtengo el parametro de la acción
+         $ProdController->UpdateBrand();
+        break;
+    }
+    case 'FilterBrand':{
         // obtengo el parametro de la acción
             $ProdController->FilterBrand($params[1]);
             break;
+    }
     default:
         break;
 }

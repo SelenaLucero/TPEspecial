@@ -40,6 +40,7 @@ class ProdView
 
 
 
+
   //productos
   function showProducts($products)
   {
@@ -49,15 +50,16 @@ class ProdView
 
   function showDetail($product)
   {
-
-
     $this->smarty->assign("product", $product);
     $this->smarty->display('templates/showDetail.tpl');
   }
 
+  //aca va brands
   function showFormProd($brands)
   {
     $this->smarty->assign("brands", $brands);
     $this->smarty->display('templates/formProd.tpl');
   }
+
+  
 }

@@ -1,13 +1,14 @@
-{foreach from= $products item=$product }
 
+{foreach from= $products item=$product }
       <table class="table">
             <thead>
-                  <th> Marca </th>
+                 
                   <th>Variedad</th>
+                  <th> Descripcion </th>
                   <th>Precio</th>
                   <tr>
-                      <th scope="col">{$product->Marca}</th>
-                      <th scope="col">{$product->Variedad }</th>
+                      <th scope="col">{$product->Variedad}</th>
+                      <th scope="col">{$product->Descripcion}</th>
                       <th scope="col">{$product->Precio} </th>
                   </tr>
             </thead>

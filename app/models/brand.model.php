@@ -48,9 +48,11 @@ class brandModel
         $query->execute([$id]);
     
     }
-    function updateBrandById($id_Marca){
+   
 
-        $query = $this->db->prepare('UPDATE `marca` SET `id_Marca`=?,`Marca`= ? WHERE ?');
+    function updateBrandById($id_Marca,$Marca){
+
+        $query = $this->db->prepare('UPDATE `marca` SET `Marca`= ? WHERE `id_Marca`= ?');
         $query->execute([$id_Marca]);
         
     }

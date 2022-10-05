@@ -49,11 +49,11 @@ class ProdModel {
 
 
 
-    function insertProd($id_Marca, $Variedad, $Precio, $Descripcion)
+    function insertProd($Variedad, $Descripcion, $Precio)
     {
 
-        $query = $this->db->prepare("INSERT INTO `producto` (`id_Marca`, `Variedad`, `Precio`, `Descripcion`) VALUES (?, ?, ?,?)"); //(preparo)-escribo mi consulta
-        $query->execute([$id_Marca, $Variedad, $Precio, $Descripcion]);
+        $query = $this->db->prepare("INSERT INTO `producto` (`Variedad`, `Descripcion`, `Precio`) VALUES (?, ?,?)"); //(preparo)-escribo mi consulta
+        $query->execute([$Variedad, $Descripcion,$Precio]);
 
         //para el id
         return $this->db->lastInsertId();
@@ -78,8 +78,9 @@ class ProdModel {
 
     function getProdByBrand($id){
         
-        $query = $this->db->prepare(' SELECT a. *, b. *FROM  marca a 
-        INNER JOIN producto b ON a.id_marca = b.id_marca WHERE a.id_producto  = ? );');
+        $query = $this->db->prepare('SELECT * FROM marca AS m 
+                                    INNER JOIN producto AS p
+                                    ON  m.id_Marca = p.id_Marca');
         $query->execute([$id]);
 
         $ProdByBrand = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
