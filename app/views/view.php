@@ -41,10 +41,10 @@ class ProdView
 
   }
 
-  // function showUpdateBrand($brands){
-  //   $this->smarty->assign("brands", $brands);
-  //   $this->smarty->display('formUpdateBrand.tpl');
-  // }
+  function showUpdateBrand($brands){
+    $this->smarty->assign("brands", $brands);
+    $this->smarty->display('formUpdateBrand.tpl');
+  }
 
 
   //productos

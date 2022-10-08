@@ -76,19 +76,20 @@ class ProdController
 
   public function UpdateBrand()
   {
-    
+    // Devuelvetrue si la variable existe y tiene un valor distinto de null , false de lo contrario.
+    if(isset($_POST['id_Marca'],$_POST['id_Marca'])){
     $id_Marca = $_GET['id_Marca'];
     $Marca = $_GET['Marca'];
-
-    $this->brandmodel->updateBrandById($id_Marca,$Marca);
-    
+  
+      $this->brandmodel->updateBrandById($id_Marca,$Marca);
+    }
   }
+//esta bien que haga una funcion para mostrar el form
+ public function showUpdateBrand($id){
+  $brands = $this->prodmodel->getProduct($id);
+  $this->brandview->showUpdateBrand($brands);
 
-  // public function showUpdate(){
-  //   $brands = $this->brandmodel->getAllBrands();
-
-  //   $this->view->showUpdateBrand($brands);
-  // }
+ }
   
   
   // productos
