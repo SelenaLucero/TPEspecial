@@ -20,7 +20,7 @@ $ProdController = new ProdController();
 switch ($params[0]) {
     case 'login':
         $authController = new AuthController();
-        $authController->showFormLogin();
+        $authController->showLogin();
         break;
     // case 'validate':
     //     $authController = new AuthController();

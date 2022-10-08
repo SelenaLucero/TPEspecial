@@ -86,8 +86,8 @@ class ProdController
   }
 //esta bien que haga una funcion para mostrar el form
  public function showUpdateBrand($id){
-  $brands = $this->prodmodel->getProduct($id);
-  $this->brandview->showUpdateBrand($brands);
+  // $brands = $this->brandmodel->updateBrandById();
+  // $this->view->showUpdateBrand($brands);
 
  }
   

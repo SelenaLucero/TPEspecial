@@ -12,8 +12,8 @@ class AuthController{
         $this->view = new AuthView();
     }
 
-    public function showFormLogin(){
-        $this->view->formLogin();
+    public function showLogin(){
+        $this->view->showLogin();
     }
 
     public function validateUser(){
@@ -36,7 +36,7 @@ class AuthController{
         }
         else{
              // si los datos son incorrectos muestro el form con un erro
-           $this->view->FormLogin("El usuario o la contraseña no existe.");
+           $this->view->showLogin("El usuario o la contraseña no existe.");
         } 
     }
     public function logout(){
