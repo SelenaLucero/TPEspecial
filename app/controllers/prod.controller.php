@@ -76,17 +76,19 @@ class ProdController
 
   public function UpdateBrand()
   {
-
-    $id_Marca = $_POST['id_Marca'];
-    $Marca = $_POST['Marca'];
+    
+    $id_Marca = $_GET['id_Marca'];
+    $Marca = $_GET['Marca'];
 
     $this->brandmodel->updateBrandById($id_Marca,$Marca);
     
-    // $this->view->showUpdateBrand($id_Marca,$Marca);
-
-    
   }
 
+  // public function showUpdate(){
+  //   $brands = $this->brandmodel->getAllBrands();
+
+  //   $this->view->showUpdateBrand($brands);
+  // }
   
   
   // productos

@@ -41,10 +41,9 @@ class ProdView
 
   }
 
-  // function showUpdateBrand($id_Marca,$Marca){
-  //   $this->smarty->assign("id_Marca", $id_Marca);
-  //   $this->smarty->assign("Marca", $Marca);
-  //   $this->smarty->display('updateBrand.tpl');
+  // function showUpdateBrand($brands){
+  //   $this->smarty->assign("brands", $brands);
+  //   $this->smarty->display('formUpdateBrand.tpl');
   // }
 
 
