@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="style.css">
   <title>Vinoteca</title>
 </head>
 {* style= "background-image: url('img/vinotecahome.jpg')"; *}
@@ -32,9 +32,16 @@
           </li> 
         </ul>
         <ul class="nav justify-content-end">
+        {if !isset($smarty.session.id)}
           <li class="nav-item">
-            <a class="nav-link disabled" aria-current="page" href="#">Log in</a>
+            <a class="nav-link" aria-current="page" href="login">Log in</a>
           </li>
+          {else} 
+            <li class="nav-item ml-auto">
+            <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.email})</a>
+          </li>
+        {/if}
+
         </ul>
       </div>
     </div>

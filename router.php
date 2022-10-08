@@ -1,6 +1,6 @@
 <?php
-require_once 'libs/smarty/libs/Smarty.class.php';
 require_once 'app/controllers/prod.controller.php';
+require_once 'app/controllers/auth.controller.php';
 
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -8,7 +8,7 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 } else {
-    $action = 'home'; //por defecto va al home 
+    $action = 'login'; //por defecto va al home 
 }
 
 $params = explode('/', $action);
@@ -18,22 +18,33 @@ $ProdController = new ProdController();
 
 //el switch guia a donde va a ir 
 switch ($params[0]) {
-    case 'home': {
+    case 'login':
+        $authController = new AuthController();
+        $authController->showFormLogin();
+        break;
+    // case 'validate':
+    //     $authController = new AuthController();
+    //     $authController->validateUser();
+    //     break;
+    // case 'logout':
+    //     $authController = new AuthController();
+    //     $authController->logout();
+    //     break;
+    
+    case 'home': 
             $ProdController->showHome();
             break;
-        }
-    case 'products': {
+    case 'products': 
             $ProdController->showProduct();
             break;
-        }
-    case 'detail': {
+    case 'detail': 
             $ProdController->showDetail($params[1]);
             break;
-        }
-    case 'formProd': {
+        
+    case 'formProd': 
             $ProdController->FormProd();
             break;
-        }
+        
     case 'insertProduct':
         $ProdController->AddProduct();
 
@@ -50,33 +61,33 @@ switch ($params[0]) {
 
     ///marcas
 
-    case 'brands':{
+    case 'brands':
             $ProdController->showBrand();
             break;
-        }
-    case 'formBrand':{
+        
+    case 'formBrand':
             $ProdController->FormBrands();
             break;
-    }
-    case 'insertBrand':{
+    
+    case 'insertBrand':
         $ProdController->AddBrand();
         break;
-    }
-    case 'deleteBrand':{
+    
+    case 'deleteBrand':
             // obtengo el parametro de la acción
             $ProdController->deleteBrand($params[1]);
             break;
-    }
-    case 'updateBrand':{
+    
+    case 'updateBrand':
      // obtengo el parametro de la acción
          $ProdController->UpdateBrand();
         break;
-    }
-    case 'filterBrand':{
+    
+    case 'filterBrand':
         // obtengo el parametro de la acción
             $ProdController->FilterBrand($params[1]);
             break;
-    }
+    
     default:
         break;
 }

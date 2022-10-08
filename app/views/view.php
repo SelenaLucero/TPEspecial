@@ -1,13 +1,16 @@
 <?php
-
+require_once 'libs/smarty/libs/Smarty.class.php'; 
 class ProdView
 {
   private $smarty;
 
+
   function __construct()
   {
+    // inicializo Smarty
     $this->smarty = new Smarty();
   }
+
 
   function showHome()
   {
@@ -38,7 +41,11 @@ class ProdView
 
   }
 
-
+  // function showUpdateBrand($id_Marca,$Marca){
+  //   $this->smarty->assign("id_Marca", $id_Marca);
+  //   $this->smarty->assign("Marca", $Marca);
+  //   $this->smarty->display('updateBrand.tpl');
+  // }
 
 
   //productos

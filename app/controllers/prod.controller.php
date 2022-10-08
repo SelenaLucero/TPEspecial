@@ -3,6 +3,7 @@ include_once 'app/models/prod.model.php'; //modelo de productos
 include_once 'app/models/brand.model.php'; //modelo de marcas (category)
 include_once 'app/views/view.php'; // view de ambos 
 
+include_once 'app/helpers/auth.helper.php';
 
 class ProdController
 {
@@ -17,6 +18,11 @@ class ProdController
     $this->prodmodel = new ProdModel();
     $this->brandmodel = new brandModel();
     $this->view = new ProdView();
+
+     // barrera de seguridad
+    //  $authHelper = new AuthHelper();
+    //  $authHelper->checkLoggedIn();
+
   }
 
   function showHome()
@@ -58,26 +64,31 @@ class ProdController
     //inserta el producto a la base de datos
     $id = $this->brandmodel->insertBrand( $Marca);
 
-    header('Location: ' . BASE_URL . '/formBrand');
+    header('Location: ' . BASE_URL . 'formBrand');
   }
 
   function deleteBrand($id)
   {
     $this->brandmodel->deleteBrandtById($id);
 
-    header('Location: ' . BASE_URL . '/formBrand');
+    header('Location: ' . BASE_URL . 'formBrand');
   }
 
-  function UpdateBrand()
+  public function UpdateBrand()
   {
+
     $id_Marca = $_POST['id_Marca'];
     $Marca = $_POST['Marca'];
+
     $this->brandmodel->updateBrandById($id_Marca,$Marca);
-    // $this->brandmodel->showUpdateBrand();
-    header('Location:  . BASE_URL . ');
+    
+    // $this->view->showUpdateBrand($id_Marca,$Marca);
+
+    
   }
 
-
+  
+  
   // productos
   function showProduct()
   {
@@ -112,18 +123,20 @@ class ProdController
     $Descripcion = $_POST['Descripcion'];
     $Precio = $_POST['Precio'];
     
+    
+
     //inserta el producto a la base de datos
     $id = $this->prodmodel->insertProd($id_Marca,$Variedad, $Descripcion, $Precio);
 
 
-    header('Location: ' . BASE_URL . '/products');
+    header('Location: ' . BASE_URL . 'products');
   }
 
   function deleteProduct($id)
   {
     $this->prodmodel->deleteProductById($id);
 
-    header('Location: ' . BASE_URL . '/formProd');
+    header('Location: ' . BASE_URL . 'formProd');
   }
 
   function UpdateProduct($id)
@@ -136,6 +149,6 @@ class ProdController
       $Descripcion = $_POST['Descripcion'];
       $this->prodmodel->updateProductById($id);
   
-    header('Location: ' . BASE_URL . '/formProd');
+    header('Location: ' . BASE_URL . 'formProd');
   }
 }
