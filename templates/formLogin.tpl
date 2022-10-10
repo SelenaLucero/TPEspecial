@@ -5,7 +5,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="text-uppercase" class="fw-3-lighter">Log in</h4>
+                    <h4 class="text-uppercase" class="fw-3-lighter">Iniciar sesion</h4>
                 </div>
                 <form action="validate" method="POST" class="p-4" enctype="multipart/form-data">
                     <div class="mb-3">

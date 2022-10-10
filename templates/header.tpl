@@ -35,11 +35,11 @@
         <ul class="nav justify-content-end">
         {if !isset($smarty.session.USER_ID)}
           <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="login">Login</a>
+              <a class="nav-link" style="color:black" href="login">Iniciar sesion</a>
           </li>
       {else}
           <li class="nav-item ml-auto">
-              <a class="nav-link" aria-current="page" href="logout">Logout
+              <a class="nav-link" style="color:black" href="logout">Cerrar sesion
                   ({$smarty.session.USER_EMAIL})</a>
           </li>
       {/if}

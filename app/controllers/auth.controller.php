@@ -30,7 +30,7 @@ class AuthController{
             // inicio una sesion para este usuario
             session_start();
             // guarda los datos de la session (estado)
-            $_SESSION['USER_ID'] = $user->id;
+            $_SESSION['USER_ID'] = $user->id_user;
             $_SESSION['USER_EMAIL'] = $user->email;
             $_SESSION['IS_LOGGED']= true; //si es true esta logueado
 
