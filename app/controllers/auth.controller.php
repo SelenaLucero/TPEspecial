@@ -13,6 +13,7 @@ class AuthController{
     }
 
     public function showLogin(){
+
         $this->view->showLogin();
     }
 
@@ -42,11 +43,13 @@ class AuthController{
            $this->view->showLogin("El usuario o la contraseña no existe.");
         } 
     }
-    public function logout(){
+    
+    public function logout()
+    {
         session_start();
         session_destroy();
         header("Location: " . BASE_URL);
-
     }
+
 }
     

@@ -19,18 +19,17 @@ $ProdController = new ProdController();
 //el switch guia a donde va a ir 
 switch ($params[0]) {
     case 'login':
-        $authController = new AuthController();
+       $authController = new AuthController();
         $authController->showLogin();
         break;
     case 'validate':
         $authController = new AuthController();
         $authController->validateUser();
         break;
-    // case 'logout':
-    //     $authController = new AuthController();
-    //     $authController->logout();
-    //     break;
-    
+    case 'logout':
+        $authController = new AuthController();
+        $authController->logout();
+        break;
     case 'home': 
             $ProdController->showHome();
             break;

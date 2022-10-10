@@ -33,16 +33,16 @@
           </li> 
         </ul>
         <ul class="nav justify-content-end">
-        {if !isset($smarty.session.id)}
+        {if !isset($smarty.session.USER_ID)}
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="login">Log in</a>
+              <a class="nav-link" aria-current="page" href="login">Login</a>
           </li>
-          {else} 
-            <li class="nav-item ml-auto">
-            <a class="nav-link" aria-current="page" href="logout">Logout ({$smarty.session.email})</a>
+      {else}
+          <li class="nav-item ml-auto">
+              <a class="nav-link" aria-current="page" href="logout">Logout
+                  ({$smarty.session.USER_EMAIL})</a>
           </li>
-        {/if}
-
+      {/if}
         </ul>
       </div>
     </div>

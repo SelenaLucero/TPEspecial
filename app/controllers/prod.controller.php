@@ -11,29 +11,34 @@ class ProdController
   private $prodmodel;
   private $brandmodel;
   private $view;
-
+  private $authHelper;
+  
   //en el constructor instanciamos los dos atributos
+
   function __construct()
   {
     $this->prodmodel = new ProdModel();
     $this->brandmodel = new brandModel();
     $this->view = new ProdView();
-
-     // barrera de seguridad
+    $this->authHelper= new AuthHelper();
+    //  barrera de seguridad
+    // cuando lo intento asi el localhost me lo impide haciendo bucle
     //  $authHelper = new AuthHelper();
     //  $authHelper->checkLoggedIn();
-
+   
   }
 
   function showHome()
   {
     //muestro mi home
+   $this->authHelper->checkLoggedIn();
     $this->view->showHome();
   }
 
   ///marcas
   function ShowBrand()
   {
+    $this->authHelper->checkLoggedIn();
     $brands = $this->brandmodel->getAllBrands();
     $this->view->showBrands($brands);
   }
@@ -49,6 +54,7 @@ class ProdController
 
   function FormBrands()
   {
+    $this->authHelper->checkLoggedIn();
     //contiene los productos del modelo
     $brands = $this->brandmodel->getAllBrands();
 
@@ -69,6 +75,7 @@ class ProdController
 
   function deleteBrand($id)
   {
+    $this->authHelper->checkLoggedIn();
     $this->brandmodel->deleteBrandtById($id);
 
     header('Location: ' . BASE_URL . 'formBrand');
@@ -84,7 +91,7 @@ class ProdController
       $this->brandmodel->updateBrandById($id_Marca,$Marca);
     }
   }
-//esta bien que haga una funcion para mostrar el form
+  //esta bien que haga una funcion para mostrar el form
  public function showUpdateBrand($id){
   // $brands = $this->brandmodel->updateBrandById();
   // $this->view->showUpdateBrand($brands);
@@ -94,7 +101,8 @@ class ProdController
   
   // productos
   function showProduct()
-  {
+  { 
+    $this->authHelper->checkLoggedIn();
     //contiene los productos del modelo
     $products = $this->prodmodel->getAllProducts();
 
@@ -105,13 +113,14 @@ class ProdController
 
   function showDetail($id)
   {
-
+    $this->authHelper->checkLoggedIn();
     $product = $this->prodmodel->getProduct($id);
     $this->view->showDetail($product);
   }
 
   function FormProd()
   {
+    $this->authHelper->checkLoggedIn();
     $products = $this->prodmodel->getAllProducts();
     $brands = $this->brandmodel->getAllBrands();
     $this->view->showFormProd($brands, $products);
@@ -155,20 +164,6 @@ class ProdController
     header('Location: ' . BASE_URL . 'formProd');
   }
 
-
-   /**
-     * Verifica que el user este logueado y si no lo está
-     * lo redirige al login.
-     * cada vez que quiero acceder a $_session arriba tengo que poner session_start();
-     * SE HACE sesion_star para iniciar la consulta de la variable $_session
-     */
-    public function checkLoggedIn() {
-      session_start();
-      if (!isset($_SESSION['IS_LOGGED'])) {
-          header("Location: " . BASE_URL . 'login');
-          die();
-      }
-  } 
-
+  
 
 }

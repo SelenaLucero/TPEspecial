@@ -13,4 +13,5 @@ class AuthView{
         $this->smarty->assign("error", $error);
         $this->smarty->display('templates/formLogin.tpl');
     }
+    
 }

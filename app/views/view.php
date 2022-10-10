@@ -67,6 +67,6 @@ class ProdView
     $this->smarty->assign("products", $products);
     $this->smarty->display('templates/formProd.tpl');
   }
-
+  
   
 }
