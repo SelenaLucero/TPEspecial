@@ -3,7 +3,7 @@
 {* esto va abajo de el primer div *}
 {* <img src="'. $producto->img .'" class="card-img-top" alt="..."> *}
 
-
+<h1>Nuestros productos</h1> 
 <section class="card">
     {foreach from= $products item=$product} 
       <div class="card">

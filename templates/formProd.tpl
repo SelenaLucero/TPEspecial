@@ -9,7 +9,8 @@
                 </div>
                 <form action="insertProduct" method="POST" class="p-4" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <select name="id_Marca">
+                    <label> Marcas: </label>
+                        <select name="id_Marca"> 
                             {foreach from= $brands item=$brand}
                                 <option value="{$brand->id_Marca}">{$brand->Marca}</option>
                             {/foreach}

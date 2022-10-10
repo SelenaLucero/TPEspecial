@@ -13,33 +13,33 @@
   <title>Vinoteca</title>
 </head>
 {* style= "background-image: url('img/vinotecahome.jpg')"; *}
-<body> 
-  <nav class="navbar navbar-expand-lg" style="background-color:#781e4b;">
+<body > 
+  <nav class="navbar navbar-expand-lg" style="background-color:transparent;">
     <div class="container-fluid" >
       <a class="navbar-brand" href="home">Vinoteca</a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link"  href="products">Productos</a>
+            <a class="nav-link"  style="font-family:italic;" href="products">Productos</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="brands">Marcas</a>
+            <a class="nav-link" style="font-family:italic;" href="brands">Marcas</a>
           </li> 
            <li class="nav-item">
-            <a class="nav-link" href="formProd">Formulario Producto</a>
+            <a class="nav-link" style="font-family:italic;" href="formProd">Formulario Producto</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="formBrand">Formulario Marcas</a>
+            <a class="nav-link " style="font-family:italic;" href="formBrand">Formulario Marcas</a>
           </li> 
         </ul>
         <ul class="nav justify-content-end">
         {if !isset($smarty.session.USER_ID)}
           <li class="nav-item">
-              <a class="nav-link" style="color:black" href="login">Iniciar sesion</a>
+              <a class="nav-link" class="navbar-brand" style="color:black" href="login">Iniciar sesion</a>
           </li>
       {else}
           <li class="nav-item ml-auto">
-              <a class="nav-link" style="color:black" href="logout">Cerrar sesion
+              <a class="nav-link" class="navbar-brand" style="color:black; " href="logout">Cerrar sesion
                   ({$smarty.session.USER_EMAIL})</a>
           </li>
       {/if}
