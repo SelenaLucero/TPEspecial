@@ -14,10 +14,12 @@
                     <div class="mb-3">
                         <input name="password" placeholder="password" type="password" id="password" class="form-control">
                     </div>
-                    
+                    {if $error} 
+                        <div class="alert alert-danger mt-3">
+                            {$error}
+                        </div>
+                    {/if}
                     <button  type="submit" class="btn btn-primary">Entrar</button>
-                    
-                    
                 </form>
             </div>
         </div>

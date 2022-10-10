@@ -9,6 +9,7 @@ class AuthModel{
     }
 
     public function getUser($email) {
+        // obtengo al usuario de la base de datos
         $query = $this->db->prepare("SELECT * FROM user WHERE email = ?");
         $query->execute([$email]);
         return $query->fetch(PDO::FETCH_OBJ);

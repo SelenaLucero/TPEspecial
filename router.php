@@ -22,10 +22,10 @@ switch ($params[0]) {
         $authController = new AuthController();
         $authController->showLogin();
         break;
-    // case 'validate':
-    //     $authController = new AuthController();
-    //     $authController->validateUser();
-    //     break;
+    case 'validate':
+        $authController = new AuthController();
+        $authController->validateUser();
+        break;
     // case 'logout':
     //     $authController = new AuthController();
     //     $authController->logout();
