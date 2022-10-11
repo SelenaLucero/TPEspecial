@@ -81,10 +81,10 @@ switch ($params[0]) {
      // obtengo el parametro de la acción
          $ProdController->UpdateBrand();
         break;
-    case 'showUpdateBrand':
-            // obtengo el parametro de la acción
-            $ProdController->showUpdateBrand($params[1]);
-            break;
+    // case 'showUpdateBrand':
+    //         // obtengo el parametro de la acción
+    //         $ProdController->showUpdateBrand($params[1]);
+    //         break;
 
     case 'filterBrand':
         // obtengo el parametro de la acción

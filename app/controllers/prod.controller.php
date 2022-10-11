@@ -83,20 +83,18 @@ class ProdController
 
   public function UpdateBrand()
   {
+    
     // Devuelvetrue si la variable existe y tiene un valor distinto de null , false de lo contrario.
     if(isset($_POST['id_Marca'],$_POST['id_Marca'])){
-    $id_Marca = $_GET['id_Marca'];
-    $Marca = $_GET['Marca'];
+    $id_Marca = $_POST['id_Marca'];
+    $Marca = $_POST['Marca'];
   
       $this->brandmodel->updateBrandById($id_Marca,$Marca);
+      
     }
   }
-  //esta bien que haga una funcion para mostrar el form
- public function showUpdateBrand(){
-  
-  $this->view->showUpdateBrand();
-
- }
+ 
+ 
   
   
   // productos
@@ -151,19 +149,29 @@ class ProdController
     header('Location: ' . BASE_URL . 'formProd');
   }
 
-  function UpdateProduct($id)
+
+  function updateprod($id){
+    $product = $this->prodmodel->getProduct($id);
+    var_dump($product);
+    $this->view->UpdateProduct($product);
+  }
+  function UpdateProduct()
   {
-    
+    if(!empty($_POST)&& isset($_POST['id_Marca'])&&isset($_POST['Variedad'])&& isset($_POST['Precio'])
+    && isset($_POST['Descripcion'])){
+
+    $product = new stdClass();
      
-      $id_Marca = $_POST['id_Marca'];
-      $Variedad = $_POST['Variedad'];
-      $Precio = $_POST['Precio'];
-      $Descripcion = $_POST['Descripcion'];
-      $this->prodmodel->updateProductById($id);
+      $product->id_Marca = $_POST['id_Marca'];
+      $product->Variedad = $_POST['Variedad'];
+      $product->Precio = $_POST['Precio'];
+      $product->Descripcion = $_POST['Descripcion'];
+
+      $this->prodmodel->updateProductById($product);
   
-    header('Location: ' . BASE_URL . 'formProd');
+    // header('Location: ' . BASE_URL . 'formProd');
   }
 
-  
+}
 
 }

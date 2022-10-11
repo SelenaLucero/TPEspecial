@@ -68,10 +68,10 @@ class ProdModel {
 
     }
   
-   function updateProductById($id){
+   function updateProductById($product){
 
         $query = $this->db->prepare('UPDATE producto SET id_Marca= ?, Variedad =?, Precio = ?, Descripcion=? WHERE id = ?');
-        $query->execute([$id]);
+        $query->execute([$product->id_Marca,$product->Variedad,$product->Precio,$product->Descripcion]);
         
     }
     
@@ -86,4 +86,6 @@ class ProdModel {
         return $ProdByBrand;
     }
 
+
+    
 }
