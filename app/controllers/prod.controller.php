@@ -48,7 +48,7 @@ class ProdController
   function FilterBrand($id){
     $prodbyBrand = $this->prodmodel->getProdByBrand($id);
     
-    $this->view->showProdByBrand($prodbyBrand);
+     $this->view->showProdByBrand($prodbyBrand);
 
   }
 
@@ -81,19 +81,23 @@ class ProdController
     header('Location: ' . BASE_URL . 'formBrand');
   }
 
-  public function UpdateBrand()
+  public function UpdateBrand($id)
   {
     
-    // Devuelvetrue si la variable existe y tiene un valor distinto de null , false de lo contrario.
-    if(isset($_POST['id_Marca'],$_POST['id_Marca'])){
-    $id_Marca = $_POST['id_Marca'];
-    $Marca = $_POST['Marca'];
+    
+    $Marca= $_POST['Marca'];
   
-      $this->brandmodel->updateBrandById($id_Marca,$Marca);
+    $this->brandmodel->updateBrand($Marca,$id);
+    header('Location: ' . BASE_URL . 'brands');
       
     }
+  
+  function showUpdateBrand($id){
+    $brand = $this->brandmodel->getBrand($id); //agarro la marca
+    $this->view->showUpdateBrand($brand);
+    
+
   }
- 
  
   
   
@@ -128,17 +132,14 @@ class ProdController
   //inserto un producto
   function AddProduct()
   {
+    
+
     $id_Marca = $_POST['id_Marca'];
     $Variedad = $_POST['Variedad'];
     $Descripcion = $_POST['Descripcion'];
     $Precio = $_POST['Precio'];
-    
-    
-
-    //inserta el producto a la base de datos
-    $id = $this->prodmodel->insertProd($id_Marca,$Variedad, $Descripcion, $Precio);
-
-
+   $id = $this->prodmodel->insertProd($id_Marca,$Variedad, $Descripcion, $Precio);
+  
     header('Location: ' . BASE_URL . 'products');
   }
 
@@ -149,29 +150,24 @@ class ProdController
     header('Location: ' . BASE_URL . 'formProd');
   }
 
+  function showUpdateProduct($id){
+  //producto que se va a editar por el id
+  $productUpdate = $this->prodmodel->getProduct($id);
+  $brands = $this->brandmodel->getAllBrands(); //agarro la marca
+  $this->view->showUpdateProduct($productUpdate,$brands);
 
-  function updateprod($id){
-    $product = $this->prodmodel->getProduct($id);
-    var_dump($product);
-    $this->view->UpdateProduct($product);
-  }
-  function UpdateProduct()
-  {
-    if(!empty($_POST)&& isset($_POST['id_Marca'])&&isset($_POST['Variedad'])&& isset($_POST['Precio'])
-    && isset($_POST['Descripcion'])){
-
-    $product = new stdClass();
-     
-      $product->id_Marca = $_POST['id_Marca'];
-      $product->Variedad = $_POST['Variedad'];
-      $product->Precio = $_POST['Precio'];
-      $product->Descripcion = $_POST['Descripcion'];
-
-      $this->prodmodel->updateProductById($product);
   
-    // header('Location: ' . BASE_URL . 'formProd');
   }
 
-}
+  function UpdateProduct($id){
+  $id_Marca = $_POST['id_Marca'];
+  $Variedad = $_POST['Variedad'];
+  $Descripcion = $_POST['Descripcion'];
+  $Precio = $_POST['Precio'];
+
+  $this->prodmodel->updateProduct($id_Marca,$Variedad,$Descripcion,$Precio,$id);
+  header('Location: ' . BASE_URL . 'products');
+  }
+ 
 
 }

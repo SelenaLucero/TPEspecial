@@ -2,14 +2,15 @@
 {foreach from= $products item=$product }
       <table class="table">
             <thead>
-                 
+                  <th>Marca</th>
                   <th>Variedad</th>
-                  <th> Descripcion </th>
+                  <th> Descripcion</th>
                   <th>Precio</th>
                   <tr>
-                      <th scope="cow">{$product->Variedad}</th>
-                      <th scope="row">{$product->Descripcion}</th>
-                      <th scope="row">{$product->Precio} </th>
+                      <td scope="cow">{$product->Marca}</td>
+                      <td scope="cow">{$product->Variedad}</td>
+                      <td scope="row">{$product->Descripcion}</td>
+                      <td scope="row">{$product->Precio} </td>
                   </tr>
                 
             </thead>

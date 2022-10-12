@@ -31,6 +31,17 @@ class brandModel
         return $brands;
     }
 
+    function getBrand($id){
+        
+        // 2. ejecuto la sentencia (2 subpasos)
+        $query = $this->db->prepare("SELECT * FROM marca WHERE id_Marca = ?");
+        $query->execute([$id]);
+
+        // 3. obtengo los resultados
+        $brand = $query->fetch(PDO::FETCH_OBJ); 
+
+        return $brand;
+    }
     
     function insertBrand($Marca)
     {
@@ -50,10 +61,10 @@ class brandModel
     }
    
 
-    function updateBrandById($id_Marca, $Marca){
+    function updateBrand($Marca,$id){
 
         $query = $this->db->prepare('UPDATE `marca` SET `Marca`= ? WHERE id_Marca = ?');
-        $query->execute([$id_Marca, $Marca]);
+        $query->execute([$Marca,$id]);
         
     }
     

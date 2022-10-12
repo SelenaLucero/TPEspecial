@@ -22,7 +22,9 @@ class ProdModel {
        
 
         // 2. ejecuto la sentencia (2 subpasos)
-        $query = $this->db->prepare("SELECT * FROM producto");
+        $query = $this->db->prepare("SELECT producto.* , marca.Marca FROM producto JOIN marca 
+        ON producto.id_Marca = marca.id_Marca");
+        // selecciono todos los productos y agarro la tabla de marca con las marcas y ambas tablas productos 
         $query->execute();
 
         // 3. obtengo los resultados
@@ -38,7 +40,8 @@ class ProdModel {
         
 
         // 2. ejecuto la sentencia (2 subpasos)
-        $query = $this->db->prepare("SELECT * FROM producto WHERE id = ?");
+        $query = $this->db->prepare("SELECT producto.* , marca.Marca FROM producto JOIN marca 
+                                    ON producto.id_Marca = marca.id_Marca WHERE producto.id = ?");
         $query->execute([$id]);
 
         // 3. obtengo los resultados
@@ -68,24 +71,33 @@ class ProdModel {
 
     }
   
-   function updateProductById($product){
+   function updateProduct($id_Marca,$Variedad,$Descripcion,$Precio,$id){
 
-        $query = $this->db->prepare('UPDATE producto SET id_Marca= ?, Variedad =?, Precio = ?, Descripcion=? WHERE id = ?');
-        $query->execute([$product->id_Marca,$product->Variedad,$product->Precio,$product->Descripcion]);
+        $query = $this->db->prepare('UPDATE producto SET id_Marca= ?, Variedad =?, Descripcion=? , Precio = ? WHERE id = ?');
+        $query->execute([$id_Marca,$Variedad,$Descripcion,$Precio,$id]);
         
     }
     
 
+    // function getProdByBrand($id){
+        
+    //     $query = $this->db->prepare('SELECT * FROM producto WHERE id_Marca = ?');
+    //     $query->execute([$id]);
+
+    //     $ProdByBrand = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+
+    //     return $ProdByBrand;
+    // }
+
     function getProdByBrand($id){
         
-        $query = $this->db->prepare('SELECT * FROM producto WHERE id_Marca = ?');
-        $query->execute([$id]);
-
-        $ProdByBrand = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
-
-        return $ProdByBrand;
-    }
-
-
+            $query = $this->db->prepare('SELECT producto.* , marca.Marca FROM producto JOIN marca ON 
+                                         producto.id_Marca = marca.id_Marca WHERE producto.id_Marca = ?');
+            $query->execute([$id]);
+    
+            $ProdByBrand = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+    
+            return $ProdByBrand;
+        }
     
 }
