@@ -54,7 +54,7 @@ class ProdController
 
   function FormBrands()
   {
-    $this->authHelper->checkLoggedIn();
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
     //contiene los productos del modelo
     $brands = $this->brandmodel->getAllBrands();
 
@@ -65,7 +65,7 @@ class ProdController
 
   function AddBrand()
   {
-    $this->authHelper->checkLoggedIn();
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
     $Marca = $_POST['Marca'];
 
     //inserta el producto a la base de datos
@@ -76,7 +76,7 @@ class ProdController
 
   function deleteBrand($id)
   {
-    $this->authHelper->checkLoggedIn();
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
     $this->brandmodel->deleteBrandtById($id);
 
     header('Location: ' . BASE_URL . 'formBrand');
@@ -84,17 +84,17 @@ class ProdController
 
   public function UpdateBrand($id)
   {
-    
-    $this->authHelper->checkLoggedIn();
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+
     $Marca= $_POST['Marca'];
-  
+
     $this->brandmodel->updateBrand($Marca,$id);
     header('Location: ' . BASE_URL . 'brands');
       
     }
   
   function showUpdateBrand($id){
-    $this->authHelper->checkLoggedIn();
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
     $brand = $this->brandmodel->getBrand($id); //agarro la marca
     $this->view->showUpdateBrand($brand);
     
@@ -124,7 +124,8 @@ class ProdController
 
   function FormProd()
   {
-    $this->authHelper->checkLoggedIn();
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+     
     $products = $this->prodmodel->getAllProducts();
     $brands = $this->brandmodel->getAllBrands();
     $this->view->showFormProd($brands, $products);
@@ -134,8 +135,8 @@ class ProdController
   //inserto un producto
   function AddProduct()
   {
-    
-    $this->authHelper->checkLoggedIn();
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+
     $id_Marca = $_POST['id_Marca'];
     $Variedad = $_POST['Variedad'];
     $Descripcion = $_POST['Descripcion'];
@@ -146,14 +147,18 @@ class ProdController
   }
 
   function deleteProduct($id)
-  { $this->authHelper->checkLoggedIn();
+  { 
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+
     $this->prodmodel->deleteProductById($id);
 
     header('Location: ' . BASE_URL . 'formProd');
   }
 
   function showUpdateProduct($id){
-    $this->authHelper->checkLoggedIn();
+
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+
   //producto que se va a editar por el id
   $productUpdate = $this->prodmodel->getProduct($id);
   $brands = $this->brandmodel->getAllBrands(); //agarro la marca
@@ -162,8 +167,10 @@ class ProdController
   
   }
 
-  function UpdateProduct($id){
-    $this->authHelper->checkLoggedIn();
+  function UpdateProduct($id)
+  {
+    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+
   $id_Marca = $_POST['id_Marca'];
   $Variedad = $_POST['Variedad'];
   $Descripcion = $_POST['Descripcion'];
