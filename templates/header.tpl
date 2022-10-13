@@ -24,7 +24,8 @@
           </li>
            <li class="nav-item">
             <a class="nav-link" style="font-family:italic;" href="brands">Marcas</a>
-          </li> 
+          </li>
+          
            <li class="nav-item">
             <a class="nav-link" style="font-family:italic;" href="formProd">Formulario Producto</a>
           </li>

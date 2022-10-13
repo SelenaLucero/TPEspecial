@@ -31,14 +31,14 @@ class ProdController
   function showHome()
   {
     //muestro mi home
-   $this->authHelper->checkLoggedIn();
+   
     $this->view->showHome();
   }
 
   ///marcas
   function ShowBrand()
   {
-    $this->authHelper->checkLoggedIn();
+    
     $brands = $this->brandmodel->getAllBrands();
     $this->view->showBrands($brands);
   }
@@ -46,8 +46,8 @@ class ProdController
 
   
   function FilterBrand($id){
-    $prodbyBrand = $this->prodmodel->getProdByBrand($id);
     
+    $prodbyBrand = $this->prodmodel->getProdByBrand($id);
      $this->view->showProdByBrand($prodbyBrand);
 
   }
@@ -65,6 +65,7 @@ class ProdController
 
   function AddBrand()
   {
+    $this->authHelper->checkLoggedIn();
     $Marca = $_POST['Marca'];
 
     //inserta el producto a la base de datos
@@ -84,7 +85,7 @@ class ProdController
   public function UpdateBrand($id)
   {
     
-    
+    $this->authHelper->checkLoggedIn();
     $Marca= $_POST['Marca'];
   
     $this->brandmodel->updateBrand($Marca,$id);
@@ -93,6 +94,7 @@ class ProdController
     }
   
   function showUpdateBrand($id){
+    $this->authHelper->checkLoggedIn();
     $brand = $this->brandmodel->getBrand($id); //agarro la marca
     $this->view->showUpdateBrand($brand);
     
@@ -104,7 +106,7 @@ class ProdController
   // productos
   function showProduct()
   { 
-    $this->authHelper->checkLoggedIn();
+  
     //contiene los productos del modelo
     $products = $this->prodmodel->getAllProducts();
 
@@ -115,7 +117,7 @@ class ProdController
 
   function showDetail($id)
   {
-    $this->authHelper->checkLoggedIn();
+    
     $product = $this->prodmodel->getProduct($id);
     $this->view->showDetail($product);
   }
@@ -133,7 +135,7 @@ class ProdController
   function AddProduct()
   {
     
-
+    $this->authHelper->checkLoggedIn();
     $id_Marca = $_POST['id_Marca'];
     $Variedad = $_POST['Variedad'];
     $Descripcion = $_POST['Descripcion'];
@@ -144,13 +146,14 @@ class ProdController
   }
 
   function deleteProduct($id)
-  {
+  { $this->authHelper->checkLoggedIn();
     $this->prodmodel->deleteProductById($id);
 
     header('Location: ' . BASE_URL . 'formProd');
   }
 
   function showUpdateProduct($id){
+    $this->authHelper->checkLoggedIn();
   //producto que se va a editar por el id
   $productUpdate = $this->prodmodel->getProduct($id);
   $brands = $this->brandmodel->getAllBrands(); //agarro la marca
@@ -160,6 +163,7 @@ class ProdController
   }
 
   function UpdateProduct($id){
+    $this->authHelper->checkLoggedIn();
   $id_Marca = $_POST['id_Marca'];
   $Variedad = $_POST['Variedad'];
   $Descripcion = $_POST['Descripcion'];

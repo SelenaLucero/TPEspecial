@@ -20,11 +20,11 @@ class AuthController{
     public function validateUser(){
          // agarro los datos del form
          $email = $_POST['email'];
-         $rol = $_POST['rol'];
+         
          $password = $_POST['password'];
         
          // busco el usuario por email
-        $user = $this->model->getUser($email , $rol);
+        $user = $this->model->getUser($email);
 
         // verifico que el usuario existe y que las contraseñas son iguales
         if($user && password_verify($password, $user->password)){
@@ -32,7 +32,6 @@ class AuthController{
             session_start();
             // guarda los datos de la session (estado)
             $_SESSION['USER_ID'] = $user->id_user;
-            $_SESSION['rol']= true; 
             $_SESSION['USER_EMAIL'] = $user->email;
             $_SESSION['IS_LOGGED']= true; //si es true esta logueado
             

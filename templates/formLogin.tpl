@@ -12,9 +12,6 @@
                         <input name="email" placeholder="email" type="email" id="email" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <input name="rol" placeholder="rol" type="text" id="rol" class="form-control">
-                    </div>
-                    <div class="mb-3">
                         <input name="password" placeholder="password" type="password" id="password" class="form-control">
                     </div>
                     {if $error} 
