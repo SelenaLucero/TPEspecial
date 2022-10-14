@@ -26,13 +26,16 @@
           <li class="nav-item">
             <a class="nav-link" style="font-family:italic;" href="brands">Marcas</a>
           </li>
-          
+          {if isset($smarty.session.USER_ID)}
           <li class="nav-item">
             <a class="nav-link" style="font-family:italic;" href="formProd">Formulario Producto</a>
           </li>
+          {/if}
+          {if isset($smarty.session.USER_ID)}
           <li class="nav-item">
             <a class="nav-link " style="font-family:italic;" href="formBrand">Formulario Marcas</a>
           </li>
+          {/if}
         </ul>
           <ul class="nav justify-content-end">
           {if !isset($smarty.session.USER_ID)}

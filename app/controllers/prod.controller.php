@@ -31,15 +31,15 @@ class ProdController
   function showHome()
   {
     //muestro mi home
+    // porque no me deja ver el formulario si esta logueado???!!!
     
-    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
     $this->view->showHome();
   }
 
   ///marcas
   function ShowBrand()
   {
-    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+   
     $brands = $this->brandmodel->getAllBrands();
     $this->view->showBrands($brands);
   }
@@ -47,7 +47,7 @@ class ProdController
 
   
   function FilterBrand($id){
-    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+   
     $prodbyBrand = $this->prodmodel->getProdByBrand($id);
      $this->view->showProdByBrand($prodbyBrand);
 
@@ -107,7 +107,7 @@ class ProdController
   // productos
   function showProduct()
   { 
-    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+    
     //contiene los productos del modelo
     $products = $this->prodmodel->getAllProducts();
 
@@ -118,7 +118,7 @@ class ProdController
 
   function showDetail($id)
   {
-    $this->authHelper->checkLoggedIn(); // barrera para que solo el admin tenga acceso
+   
     $product = $this->prodmodel->getProduct($id);
     $this->view->showDetail($product);
   }

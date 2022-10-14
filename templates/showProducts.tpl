@@ -21,4 +21,5 @@
     
     {/foreach} 
 </section>
+  
 {include 'templates/footer.tpl'}
