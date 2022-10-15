@@ -5,16 +5,18 @@ require_once 'app/views/auth.view.php';
 class AuthController{
     private $view;
     private $model;
+    private $authHelper; 
 
     public function __construct()
     {
         $this->model = new AuthModel();
         $this->view = new AuthView();
+        $this->authHelper= new AuthHelper();
     }
 
     public function showLogin(){
-
-        $this->view->showLogin();
+        $admin = $this->authHelper->isLoggedIn();
+        $this->view->showLogin($admin);
     }
 
     public function validateUser(){
@@ -41,7 +43,7 @@ class AuthController{
         else{
              // si los datos son incorrectos muestro el form con un error
             //  le pasamos el error por el parametro
-           $this->view->showLogin("El usuario o la contraseña no existe.");
+           $this->view->showLogin("El usuario o la contraseña no existe." , );
         } 
     }
     

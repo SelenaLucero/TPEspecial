@@ -15,19 +15,19 @@ $params = explode('/', $action);
 
 // instancio el unico controller que existe por ahora
 $ProdController = new ProdController();
-
+$authController = new AuthController();
 //el switch guia a donde va a ir 
 switch ($params[0]) {
     case 'login':
-       $authController = new AuthController();
+    //    $authController = new AuthController();
         $authController->showLogin();
         break;
     case 'validate':
-        $authController = new AuthController();
+        // $authController = new AuthController();
         $authController->validateUser();
         break;
     case 'logout':
-        $authController = new AuthController();
+        // $authController = new AuthController();
         $authController->logout();
         break;
     case 'home': 
