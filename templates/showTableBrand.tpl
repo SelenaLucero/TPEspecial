@@ -12,4 +12,4 @@
     </thead> 
     
     
-  {/foreach}
+{/foreach}

@@ -23,16 +23,14 @@ class ProdController
     $this->authHelper= new AuthHelper();
     //  barrera de seguridad
 
-    // cuando lo intento asi el localhost me lo impide haciendo bucle
-    //  $authHelper = new AuthHelper();
-    //  $authHelper->checkLoggedIn();
+    
    
   }
 
   function showHome()
   {
     //muestro mi home
-    // porque no me deja ver el formulario si esta logueado???!!!
+    
     $admin = $this->authHelper->isLoggedIn();
     $this->view->showHome($admin);
   }
