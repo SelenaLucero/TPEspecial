@@ -9,7 +9,7 @@
                         <td scope="cow">{$product->Marca}</td>
                         <td scope="cow">{$product->Variedad}</td>
                         <td scope="row">{$product->Descripcion}</td>
-                        <td scope="row">{$product->Precio} </td>
+                        <td scope="row">${$product->Precio} </td>
                   </tr>
 
             </thead>

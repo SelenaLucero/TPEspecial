@@ -25,11 +25,8 @@
                                 class="form-control"></label>
                     </div>
                     <div class="mb-3">
-                        <label>Precio <input name="Precio" value="{$product->Precio}" type="text"
+                        <label>Precio <input name="Precio" value="${$product->Precio}" type="text"
                                 class="form-control"></label>
-                    </div>
-                    <div>
-                        <label>Img: <input name="images" type="file" id="images" class="form-control"></label>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-outline-success">Guardar</button>
