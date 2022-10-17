@@ -19,7 +19,7 @@ $authController = new AuthController();
 //el switch guia a donde va a ir 
 switch ($params[0]) {
     case 'login':
-    //    $authController = new AuthController();
+        //    $authController = new AuthController();
         $authController->showLogin();
         break;
     case 'validate':
@@ -30,20 +30,20 @@ switch ($params[0]) {
         // $authController = new AuthController();
         $authController->logout();
         break;
-    case 'home': 
-            $ProdController->showHome();
-            break;
-    case 'products': 
-            $ProdController->showProduct();
-            break;
-    case 'detail': 
-            $ProdController->showDetail($params[1]);
-            break;
-        
-    case 'formProd': 
-            $ProdController->FormProd();
-            break;
-        
+    case 'home':
+        $ProdController->showHome();
+        break;
+    case 'products':
+        $ProdController->showProduct();
+        break;
+    case 'detail':
+        $ProdController->showDetail($params[1]);
+        break;
+
+    case 'formProd':
+        $ProdController->FormProd();
+        break;
+
     case 'insertProduct':
         $ProdController->AddProduct();
 
@@ -52,54 +52,53 @@ switch ($params[0]) {
         // obtengo el parametro de la acción
         $ProdController->deleteProduct($params[1]);
         break;
-        
-    case 'updateProd': 
+
+    case 'updateProd':
         // obtengo el parametro de la acción
         $id = $params[1];
         $ProdController->showUpdateProduct($id);
         break;
     case 'newUpdateProd':
-            // obtengo el parametro de la acción
-            $id = $params[1];
-            $ProdController->UpdateProduct($id);
-            break;
+        // obtengo el parametro de la acción
+        $id = $params[1];
+        $ProdController->UpdateProduct($id);
+        break;
 
-
-    ///marcas
+        ///marcas
 
     case 'brands':
-            $ProdController->showBrand();
-            break;
-        
+        $ProdController->showBrand();
+        break;
+
     case 'formBrand':
-            $ProdController->FormBrands();
-            break;
-    
+        $ProdController->FormBrands();
+        break;
+
     case 'insertBrand':
         $ProdController->AddBrand();
         break;
-    
+
     case 'deleteBrand':
-            // obtengo el parametro de la acción
-            $ProdController->deleteBrand($params[1]);
-            break;
-    
-    case 'updateBrand': 
+        // obtengo el parametro de la acción
+        $ProdController->deleteBrand($params[1]);
+        break;
+
+    case 'updateBrand':
         // obtengo el parametro de la acción
         $id = $params[1];
         $ProdController->showUpdateBrand($id);
         break;
     case 'newUpdateBrand':
-            // obtengo el parametro de la acción
-            $id = $params[1];
-            $ProdController->UpdateBrand($id);
-            break;
+        // obtengo el parametro de la acción
+        $id = $params[1];
+        $ProdController->UpdateBrand($id);
+        break;
 
     case 'filterBrand':
         // obtengo el parametro de la acción
-            $ProdController->FilterBrand($params[1]);
-            break;
-    
+        $ProdController->FilterBrand($params[1]);
+        break;
+
     default:
         break;
 }

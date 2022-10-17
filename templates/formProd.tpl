@@ -9,8 +9,8 @@
                 </div>
                 <form action="insertProduct" method="POST" class="p-4" enctype="multipart/form-data">
                     <div class="mb-3">
-                    <label> Marcas: </label>
-                        <select name="id_Marca"> 
+                        <label> Marcas: </label>
+                        <select name="id_Marca">
                             {foreach from= $brands item=$brand}
                                 <option value="{$brand->id_Marca}">{$brand->Marca}</option>
                             {/foreach}
@@ -25,12 +25,10 @@
                     <div class="mb-3">
                         <label>Precio: <input name="Precio" type="text" class="form-control"></label>
                     </div>
-                    {* <div>
-                        <label>Img: <input name="images" type="file"  id="images" class="form-control"></label>
-                    </div> *}
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-outline-success">Guardar</button>
-                        </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-outline-success">Guardar</button>
+                    </div>
                 </form>
             </div>
         </div>

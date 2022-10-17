@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="style.css">
   <title>Vinoteca</title>
 </head>
-{* style= "background-image: url('img/vinotecahome.jpg')"; *}
 
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color:transparent;">
@@ -27,17 +26,17 @@
             <a class="nav-link" style="font-family:italic;" href="brands">Marcas</a>
           </li>
           {if $admin}
-          <li class="nav-item">
-            <a class="nav-link" style="font-family:italic;" href="formProd">Formulario Producto</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" style="font-family:italic;" href="formProd">Formulario Producto</a>
+            </li>
           {/if}
           {if $admin}
-          <li class="nav-item">
-            <a class="nav-link " style="font-family:italic;" href="formBrand">Formulario Marcas</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link " style="font-family:italic;" href="formBrand">Formulario Marcas</a>
+            </li>
           {/if}
         </ul>
-          <ul class="nav justify-content-end">
+        <ul class="nav justify-content-end">
           {if !($admin)}
             <li class="nav-item">
               <a class="nav-link" class="navbar-brand" style="color:black" href="login">Iniciar sesion</a>

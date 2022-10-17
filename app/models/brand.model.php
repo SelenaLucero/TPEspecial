@@ -4,11 +4,11 @@ class brandModel
 {
     private $db;
 
-    //La conexion la abre el constructor
+
     function __construct()
     {
 
-        // 1. abro conexión a la DB 
+
         $this->db = $this->getDB();
     }
 
@@ -19,55 +19,54 @@ class brandModel
         return $db;
     }
 
-    function getAllBrands(){
-        
-        // 2. ejecuto la sentencia (2 subpasos)
+    function getAllBrands()
+    {
+
+
         $query = $this->db->prepare("SELECT * FROM marca");
         $query->execute();
 
-        // 3. obtengo los resultados
-        $brands = $query->fetchAll(PDO::FETCH_OBJ); // devuelve un arreglo de objetos
+
+        $brands = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $brands;
     }
 
-    function getBrand($id){
-        
-        // 2. ejecuto la sentencia (2 subpasos)
+    function getBrand($id)
+    {
+
+
         $query = $this->db->prepare("SELECT * FROM marca WHERE id_Marca = ?");
         $query->execute([$id]);
 
-        // 3. obtengo los resultados
-        $brand = $query->fetch(PDO::FETCH_OBJ); 
+
+        $brand = $query->fetch(PDO::FETCH_OBJ);
 
         return $brand;
     }
-    
+
     function insertBrand($Marca)
     {
 
-        $query = $this->db->prepare("INSERT INTO `marca` ( `Marca`) VALUES (?)"); //(preparo)-escribo mi consulta
+        $query = $this->db->prepare("INSERT INTO `marca` ( `Marca`) VALUES (?)");
         $query->execute([$Marca]);
 
-        //para el id
+
         return $this->db->lastInsertId();
     }
-    
-    function deleteBrandtById($id){
-   
+
+    function deleteBrandtById($id)
+    {
+
         $query = $this->db->prepare('DELETE FROM `marca` WHERE id_Marca = ?');
         $query->execute([$id]);
-    
     }
-   
 
-    function updateBrand($Marca,$id){
+
+    function updateBrand($Marca, $id)
+    {
 
         $query = $this->db->prepare('UPDATE `marca` SET `Marca`= ? WHERE id_Marca = ?');
-        $query->execute([$Marca,$id]);
-        
+        $query->execute([$Marca, $id]);
     }
-    
-    
-    
 }

@@ -10,18 +10,18 @@
                     <div class="card-header">
                         <h4 class="text-uppercase" class="fw-3-lighter">Ingrese su nueva marca</h4>
                     </div>
-                        <div class="d-grid">
-                            <label >Marca: <input name="Marca" type="text" class="form-control"></label>
-                            <button type="submit" class="btn btn-outline-success">Guardar</button>
-                        </div>
-                    
+                    <div class="d-grid">
+                        <label>Marca: <input name="Marca" type="text" class="form-control"></label>
+                        <button type="submit" class="btn btn-outline-success">Guardar</button>
+                    </div>
+
                 </div>
             </div>
+        </form>
     </div>
 </div>
- 
 
-</form>
+
+
 
 {include 'templates/showTableBrand.tpl'}
-  
